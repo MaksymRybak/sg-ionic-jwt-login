@@ -37,6 +37,7 @@ export class AuthService {
           let decoded = helper.decodeToken(token);
           console.log('decoded', decoded);
           this.userData.next(decoded);
+          return true;
         } else {
           return null;
         }
@@ -44,8 +45,8 @@ export class AuthService {
     );
   }
 
-  login(credentials: { email: string, pwd: string }): Observable<any> {
-    if (credentials.email !== 'mario.rossi@gmail.com' && credentials.pwd !== '123') {
+  login(credentials: { email: string, pw: string }): Observable<any> {
+    if (credentials.email !== 'mario.rossi@gmail.com' && credentials.pw !== '123') {
       return of(null);
     }
 
